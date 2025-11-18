@@ -4,151 +4,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClassicBox - Garry's Mod Server</title>
+    <title>Qupinator</title>
+    <meta http-equiv="content-language" content="ru">
+    <meta name="author" content="Qupinator">
+    <meta name="keywords" content="Qupinator,Qupin,Qupina,Qupisha,Qupich,Qupique,Q-Pin,Купинатор,Купин,Купина,Купиша,Купичка,Кьюпин,Кьюпинатор,Кьюпик,Кьюпичка,Квипин,Квипинатор,Кьюп,Квип,Куп,Qup,Qp,Qpi,Купчик,Кьюпчик,Купец,Кьюпец,Qupchik,Qupok,Kupchik,Юпин,Юпинатор,Купинат,Квинат,Qupinat,Qpntr,Qpn8r,Quper,SuperQupin,SuperKupin,СуперКьюпин">
+    <meta name="description" content="Окак, я в интернете?">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
+        :root {
+            --primary: #dc1a5d;
+            --primary-light: #ff2b71;
+            --dark-bg: #121212;
+            --dark-card: #1e1e1e;
+            --text: #ffffff;
+            --text-secondary: #b3b3b3;
+        }
+
+        * {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #001014;
-            color: rgb(255, 255, 255);
-            text-align: center;
-            padding: 20px;
+            padding: 0;
             box-sizing: border-box;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-        }
-        @media only screen and (max-width: 1000px) {
-            .footer-buttons {
-                transform: scale(0.6);
-                box-sizing: border-box;
-            }
-														.content {
-                font-size: 10px;
-                margin-bottom: 100px;
-                
-     					   }
-            body {overflow: hidden;}
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 1.5em;
-            margin-bottom: 40px;
-            max-width: 600px;
-        }
-
-        .content {
-
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text);
+            overflow-x: hidden;
+            position: relative;
+            height: 100dvh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
+            justify-content: space-between;
         }
 
-        .main-button {
-            padding: 15px 30px;
-            font-size: 1.5em;
-            color: white;
-            background-color: transparent;
-            border: 2px solid #ff0d0d;
-            border-radius: 15px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .main-button:hover {
-            background-color: #ff0d0d;
-            box-shadow: 0px 0px 10px 1px #bf0000;
-            transform: scale(1.05);
-        }
-
-        .footer-buttons {
-            bottom: 20px;
-            display: flex;
+        body::before {
+            content: '';
             position: absolute;
-            align-items: end;
-            margin-top: 40px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 10%, rgba(245, 15, 95, 0.237), transparent 20%);
+            z-index: -1;
         }
 
-        .footer-button {
-            display: flex;
-            padding: 15px 15px;
-            margin: 0 10px;
-            font-size: 1em;
-            color: rgb(255, 255, 255);
-            font-weight: bolder;
-            background-color: transparent;
-            border: 2px solid #ff0d0d;
-            justify-content: center;
-            max-height: 30px;
-            width: 160px;
-            align-items: center;
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding-block: 30px;
             text-align: center;
-            border-radius: 20px;
-            text-decoration: none;
-            height: auto;
-            transition: all 0.3s ease;
-        }
-
-        .discord-button {
-            display: flex;
-            padding: 15px 15px;
-            height: 70px;
-            color: white;
-            border: 2px solid #3f51b5;
+	    height: 100%;
+	    display: flex;
+	    flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            border-radius: 65px;
-            text-decoration: none;
-            transition: all 0.3s ease;
         }
 
-        .discord-button:hover {
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+            color: var(--text);
+        }
+
+        .section-title::after {
+            content: '';position: absolute;bottom: -10px;left: 50%;transform: translateX(-50%);width: 60px;height: 4px;background: var(--primary);border-radius: 2px;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .soc-cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;margin-inline: 30px;
+        }
+
+        .soc-card {
+            background: linear-gradient(to top, #1e1e1e75, #22222200);
+            height: 100px;width: 400px;
+            border-radius: 15px;display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .soc-card::before {
+            content: '';z-index: -1;position: absolute;top: 0;width: 110%;height: 150%;background: linear-gradient(to right bottom, #dc1a5eab -100px, #ffffff00 50%);
+        }
+
+        .soc-card:hover {
+            box-shadow: 0 0px 35px rgba(220, 26, 94, 0.15);
+            border-color: rgba(220, 26, 94, 0.3);
+        }
+
+        .soc-card:hover .soc-icon {
+            transform: scale(1.55) rotate(45deg);
             border-radius: 30px;
-            background-color: #303f9f;
-            box-shadow: 0px 0px 10px 1px #3f51b5;
-            /* transform: scale(1.05); */
+            margin-right: 20px;
         }
 
-        .footer-button:hover {
-            background-color: #ff0d0d;
-            box-shadow: 0px 0px 10px 1px #bf0000;
-            transform: scale(1.05);
+        .soc-card:hover .soc-icon i {
+            transform: scale(0.75) rotate(-45deg);
         }
 
-        img {
-            width: 70px;
+        .soc-icon {
+            font-size: 2.8rem;
+            color: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 11px;
+            background: rgba(220, 26, 93, 0.1);
+            transition: all 0.3s ease;
+            margin-inline: 7px 10px;
         }
+
+        .soc-icon i {
+            transition: all 0.3s ease;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .soc-card h3 {
+            font-size: 1.6rem;
+        }
+
+        .soc-card .sbtn {
+            color: var(--text-secondary);
+            margin: -1px 0 5px 7px;
+	    width: fit-content;
+        }
+
+        footer {
+            padding: 20px 0 30px 0;
+            border-top: 1px solid rgba(220, 26, 94, 0.2);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+	    justify-content: center;
+        }
+
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(220, 26, 93, 0.1);
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: rgba(220, 26, 93, 0.2);
+            transform: translateY(-3px);
+            color: var(--primary-light);
+        }
+	@media (width < 460px) {.soc-card{width:100%}}
     </style>
 </head>
 
 <body>
-    <div class="content">
-        <h1>Добро пожаловать на <a style="color:red">ClassicBox</a>!</h1>
-        <p>ClassicBox — Это крутой сервер с добрым комьюнити в такой игре как Garry's Mod. Будем рады если вы
-            присоединитесь
-            к нам!</p>
-        <a href="#" class="main-button">Присоединиться</a>
-    </div>
-    <div class="footer-buttons">
-        <a href="rules.html" class="footer-button">Правила</a>
-        <a href="https://discord.gg/FTXtrkPUpX" class="discord-button"><img src="discord.png"></a>
-        <a href="loadscreen.html" class="footer-button">Загрузочный экран</a>
-    </div>
-
+    <section id="social" class="section">
+        <div class="container">
+            <h2 class="section-title"><span>Qupin</span>ator</h2>
+            <div class="soc-cards-container">
+                <a href="https://discord.gg/qQXUJCmPm6" target="_blank" class="soc-card">
+                    <div class="soc-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <div class="column">
+                        <h3>Discord</h3>
+                        <span class="sbtn">Qupinator</span>
+                    </div>
+                </a>
+                <a href="https://t.me/qupinator_offic" target="_blank" class="soc-card">
+                    <div class="soc-icon">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <div class="column">
+                        <h3>Telegram</h3>
+                        <span class="sbtn">@Qupinator</span>
+                    </div>
+                </a>
+                <a href="https://vk.com/qupinator" target="_blank" class="soc-card">
+                    <div class="soc-icon">
+                        <i class="fab fa-vk"></i>
+                    </div>
+                    <div class="column">
+                        <h3>ВКонтакте</h3>
+                        <span class="sbtn">@Qupinator</span>
+                    </div>
+                </a>
+                <a href="steamcommunity.com/id/qupinator" target="_blank" class="soc-card">
+                    <div class="soc-icon">
+                        <i class="fab fa-steam"></i>
+                    </div>
+                    <div class="column">
+                        <h3>Steam</h3>
+                        <span class="sbtn">Qupinator</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+                <div class="social-links">
+                    <a href="https://discord.gg/qQXUJCmPm6" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    <a href="https://t.me/qupinator_offic" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://vk.com/qupinator" target="_blank" aria-label="ВКонтакте"><i class="fab fa-vk"></i></a>
+                    <a href="steamcommunity.com/id/qupinator" target="_blank" aria-label="Steam"><i class="fab fa-steam"></i></a>
+                </div>
+        </div>
+    </footer>
 </body>
 
 </html>
