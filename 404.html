@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница не найдена | Qupinator</title>
+    <meta http-equiv="content-language" content="ru">
+    <meta name="author" content="Qupinator">
+    <meta name="keywords" content="Qupinator, 404, ошибка, страница не найдена">
+    <meta name="description" content="Вы потерялись в интернете?">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <style>
+        :root {
+            --primary: #dc1a5d;
+            --primary-light: #ff2b71;
+            --dark-bg: #121212;
+            --dark-card: #1e1e1e;
+            --text: #ffffff;
+            --text-secondary: #b3b3b3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            user-select: none;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 10%, rgba(245, 15, 95, 0.237), transparent 20%);
+            z-index: -1;
+        }
+
+        /* Анимированные частицы */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.7;
+            }
+
+            90% {
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .error-code-container {
+            background: linear-gradient(to top, #1e1e1e75, #22222200);
+            height: 180px;
+            width: 400px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .error-code {
+            font-size: 7rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-shadow: 0 0 30px rgba(220, 26, 93, 0.5);
+            letter-spacing: 20px;
+            margin-top: -10px;
+            margin-right: -20px;
+        }
+
+        .error-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text);
+            position: relative;
+            display: inline-block;
+        }
+
+        .error-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .error-message {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* Кнопка в улучшенном стиле */
+        .home-card {
+            background: linear-gradient(to top, #1e1e1e75, #22222200);
+            height: 70px;
+            width: 250px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .home-card::before {
+            content: '';
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            width: 110%;
+            height: 150%;
+            background: linear-gradient(to right bottom, #dc1a5eab -100px, #ffffff00 50%);
+        }
+
+        .home-card:hover {
+            box-shadow: 0 0px 35px rgba(220, 26, 94, 0.15);
+            border-color: rgba(220, 26, 94, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .home-card:hover .home-icon {
+            transform: scale(1.55) rotate(45deg);
+            border-radius: 20px;
+            margin-right: 35px;
+        }
+
+        .home-card:hover .home-icon i {
+            transform: scale(0.75) rotate(-45deg);
+        }
+
+        .home-icon {
+            font-size: 1.4rem;
+            color: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 55px;
+            height: 55px;
+            border-radius: 11px;
+            background: rgba(220, 26, 93, 0.1);
+            transition: all 0.3s ease;
+            margin-inline: 7px 10px;
+        }
+
+        .home-icon i {
+            transition: all 0.3s ease;
+        }
+
+        .home-card .sbtn {
+            color: var(--text-secondary);
+            margin: -1px 0 5px 7px;
+            width: fit-content;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(220, 26, 93, 0.1);
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: rgba(220, 26, 93, 0.2);
+            transform: translateY(-3px);
+            color: var(--primary-light);
+        }
+
+        /* Анимация появления контента */
+        .container>* {
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .error-code-container {
+            animation-delay: 0.2s;
+        }
+
+        .error-title {
+            animation-delay: 0.4s;
+        }
+
+        .error-message {
+            animation-delay: 0.6s;
+        }
+
+        .home-card {
+            animation-delay: 0.8s;
+        }
+
+        .social-links {
+            animation-delay: 1s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .error-code-container {
+                width: 350px;
+                height: 150px;
+            }
+
+            .error-code {
+                font-size: 6rem;
+            }
+
+            .error-title {
+                font-size: 2rem;
+            }
+
+            .error-message {
+                font-size: 1rem;
+            }
+
+            .home-card {
+                width: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-code-container {
+                width: 300px;
+                height: 130px;
+            }
+
+            .error-code {
+                font-size: 5rem;
+                letter-spacing: 5px;
+            }
+
+            .error-title {
+                font-size: 1.8rem;
+            }
+
+            .error-message {
+                font-size: 0.9rem;
+            }
+
+            .home-card {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Анимированные частицы -->
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <div class="error-code-container">
+            <div class="error-code">404</div>
+        </div>
+        <h2 class="error-title">Страница не найдена</h2>
+        <p class="error-message">Вы потерялись? Вернитесь к началу или найдите путь в параллельной вселенной.</p>
+
+        <a href="/" class="home-card">
+            <div class="home-icon">
+                <i class="fas fa-home"></i>
+            </div>
+            <h3>На главную</h3>
+        </a>
+
+        <div class="social-links">
+            <a href="https://discord.gg/qQXUJCmPm6" target="_blank" aria-label="Discord"><i
+                    class="fab fa-discord"></i></a>
+            <a href="https://t.me/qupinator_offic" target="_blank" aria-label="Telegram"><i
+                    class="fab fa-telegram"></i></a>
+            <a href="https://vk.com/qupinator" target="_blank" aria-label="ВКонтакте"><i class="fab fa-vk"></i></a>
+            <a href="https://steamcommunity.com/id/qupinator" target="_blank" aria-label="Steam"><i
+                    class="fab fa-steam"></i></a>
+        </div>
+    </div>
+
+    <script>
+        // Создание анимированных частиц
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                // Случайный размер
+                const size = Math.random() * 5 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+
+                // Случайная позиция
+                particle.style.left = `${Math.random() * 100}%`;
+
+                // Случайная задержка анимации
+                particle.style.animationDelay = `${Math.random() * 15}s`;
+
+                // Случайная продолжительность анимации
+                particle.style.animationDuration = `${Math.random() * 10 + 10}s`;
+
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Запуск при загрузке страницы
+        window.addEventListener('load', createParticles);
+    </script>
+</body>
+
+</html>
